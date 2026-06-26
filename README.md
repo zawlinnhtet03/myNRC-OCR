@@ -1,4 +1,4 @@
-# myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs
+# myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs Integrating YOLOv8, Tesseract LSTM, TrOCR, and Post-OCR Correction
 
 [![Conference](https://img.shields.io/badge/Accepted-JCSSE2026-success)](#) 
 
