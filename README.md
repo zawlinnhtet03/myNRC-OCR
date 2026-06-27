@@ -1,12 +1,14 @@
 # myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs Integrating YOLOv8, Tesseract LSTM, TrOCR, and Post-OCR Correction
 
-[![Conference](https://img.shields.io/badge/Accepted-JCSSE2026-success)](#) 
+[![Conference](https://img.shields.io/badge/Accepted-JCSSE2026-success)](https://www.researchgate.net/publication/402542486_myNRC-OCR_A_Hybrid_OCR_Framework_for_Handwritten_Myanmar_NRCs_Integrating_YOLOv8_Tesseract_LSTM_TrOCR_and_Post-OCR_Correction)
 
-This repository contains the official reproducibility code and resources for the paper **"myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs Integrating YOLOv8, Tesseract LSTM, TrOCR, and Post-OCR Correction"**. 
+> **Publication Status:** This paper has been formally accepted to the *Joint International Conference on Computer Science and Software Engineering (JCSSE 2026)*. Official IEEE Xplore proceedings are forthcoming. In the interim, the full accepted author manuscript is available publicly on [ResearchGate](https://www.researchgate.net/publication/402542486_myNRC-OCR_A_Hybrid_OCR_Framework_for_Handwritten_Myanmar_NRCs_Integrating_YOLOv8_Tesseract_LSTM_TrOCR_and_Post-OCR_Correction).
 
-Accurate OCR for Myanmar's National Registration Cards (NRCs) is essential for digital KYC but remains challenging due to complex script orthography, handwritten entries, and low-resource data. This project proposes an end-to-end framework integrating object detection, multi-model recognition, and a 3-tier linguistic post-OCR correction module.
+myNRC-OCR is a specialized hybrid framework developed for extracting complex handwritten and printed data from Myanmar National Registration Cards (NRCs). Accurate OCR for Myanmar's National Registration Cards (NRCs) is essential for digital KYC but remains challenging due to complex script orthography, handwritten entries, and low-resource data. This project proposes an end-to-end framework integrating object detection, multi-model recognition, and a 3-tier linguistic post-OCR correction module.
 
-## Repository Contents
+This repository contains the official sample resources for the paper **"myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs Integrating YOLOv8, Tesseract LSTM, TrOCR, and Post-OCR Correction"**. 
+
+## Contents
 
 To support partial reproducibility and foster ongoing research in low-resource OCR, we have provided the following core pipeline notebooks:
 
