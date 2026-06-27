@@ -27,6 +27,21 @@ The following examples show a representative end-to-end inference result from th
 
 These examples are intended to illustrate model behavior in realistic document conditions (e.g., mixed printed and handwritten fields, variable illumination, and background noise) while respecting privacy constraints through controlled sample publication.
 
+## Citation
+
+If you use this project, dataset samples, or methodology in your research, please cite:
+
+Zaw Linn Htet, Pyae Linn, Htoo Thet Naung, Htet Arkar Kyaw, Charnon Pattiyanon, Tianwei Jing, "myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs Integrating YOLOv8, Tesseract LSTM, TrOCR, and Post-OCR Correction," in *Proceedings of the 23rd International Joint Conference on Computer Science and Software Engineering (JCSSE 2026)*, Bangkok, Thailand, June 2026.
+
+**Abstract (summary):**  
+Handwritten OCR for Myanmar script is hindered
+by complex orthography, character stacking, and limited
+annotated data. We propose myNRC-OCR, a hybrid framework
+for robust text extraction from Myanmar National Registration
+Cards (NRCs). The pipeline utilizes YOLOv8 for field
+localization, followed by a comparative recognition study between
+Tesseract LSTM and Transformer-based TrOCR. 
+
 ## Dataset & Privacy Notice
 
 Due to commercial licensing constraints with Dinger Research and stringent regional data privacy regulations regarding National Registration Cards, the complete private NRC dataset and the fine-tuned model weights remain proprietary. 
