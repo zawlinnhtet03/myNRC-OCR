@@ -1,6 +1,6 @@
 # myNRC-OCR: A Hybrid OCR Framework for Handwritten Myanmar NRCs Integrating YOLOv8, Tesseract LSTM, TrOCR, and Post-OCR Correction
 
-[🔗 View Official GitHub Repository & Source Code](https://github.com/zawlinnhtet03/myNRC-OCR)
+[🔗 View Official GitHub Repository](https://github.com/zawlinnhtet03/myNRC-OCR)
 
 > **Publication Status:** This paper has been formally accepted to the *Joint International Conference on Computer Science and Software Engineering (JCSSE 2026)*. Official IEEE Xplore proceedings are forthcoming. In the interim, the full accepted author manuscript is available publicly on [ResearchGate](https://www.researchgate.net/publication/402542486_myNRC-OCR_A_Hybrid_OCR_Framework_for_Handwritten_Myanmar_NRCs_Integrating_YOLOv8_Tesseract_LSTM_TrOCR_and_Post-OCR_Correction).
 
