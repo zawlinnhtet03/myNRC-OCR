@@ -81,7 +81,16 @@ def ensure_authenticated() -> None:
                     {"email": email, "password": password}
                 )
                 user_email = getattr(getattr(auth_response, "user", None), "email", email)
-                st.session_state["auth_user"] = {"email": user_email}
+                session = auth_response.session
+
+                if not session:
+                    st.error("Login succeeded but no session was returned.")
+                    st.stop()
+
+                st.session_state["auth_user"] = {
+                    "email": user_email,
+                    "access_token": session.access_token,
+                }
                 st.success(f"Signed in as {user_email}")
                 st.rerun()
             except Exception:
@@ -121,12 +130,12 @@ with st.sidebar:
 
 col1, col2 = st.columns(2)
 
-def call_modal_api(payload):
+def call_modal_api(payload, access_token):
     headers = {
-        "Content-Type": "application/octet-stream"
+        "Content-Type": "application/octet-stream",
+        "Authorization": f"Bearer {API_KEY}",
+        "X-Supabase-Token": access_token,
     }
-    if API_KEY is not None and str(API_KEY).strip() != "":
-        headers["Authorization"] = f"Bearer {API_KEY}"
 
     for attempt in range(RETRIES + 1):
         try:
@@ -160,16 +169,20 @@ with col1:
         st.session_state["uploaded_file"] = uploaded
         st.session_state["img"] = img
 
-        # Run simulation automatically on upload
-        img_byte_arr = io.BytesIO()
-        img.save(img_byte_arr, format="JPEG", quality=85)
-        payload = img_byte_arr.getvalue()
+        
+    # Prepare image payload
+    img_byte_arr = io.BytesIO()
+    img.save(img_byte_arr, format="JPEG", quality=85)
+    payload = img_byte_arr.getvalue()
 
-        st.write(f"Payload size: {len(payload) / 1024:.1f} KB")
+    st.write(f"Payload size: {len(payload) / 1024:.1f} KB")
+
+    if st.button("Run OCR", type="primary"):
+        access_token = st.session_state["auth_user"]["access_token"]
 
         with st.spinner("Sending request to API..."):
             try:
-                response = call_modal_api(payload)
+                response = call_modal_api(payload, access_token)
 
                 if response.status_code == 200:
                     data = response.json()
