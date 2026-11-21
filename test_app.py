@@ -15,7 +15,7 @@ st.set_page_config(page_title="KYC API Tester", layout="wide")
 API_URL = os.getenv("API_URL")
 API_KEY = os.getenv("OCR_API_KEY")
 SUPABASE_URL = os.getenv("SUPABASE_URL")
-SUPABASE_ANON_KEY = os.getenv("SUPABASE_ANON_KEY")
+SUPABASE_PUBLISHABLE_KEY = os.getenv("SUPABASE_PUBLISHABLE_KEY")
 
 if not API_URL:
     st.error(
@@ -23,9 +23,9 @@ if not API_URL:
     )
     st.stop()
 
-if not SUPABASE_URL or not SUPABASE_ANON_KEY:
+if not SUPABASE_URL or not SUPABASE_PUBLISHABLE_KEY:
     st.error(
-        "Supabase credentials (SUPABASE_URL and SUPABASE_ANON_KEY) are required to use this app."
+        "Supabase credentials (SUPABASE_URL and SUPABASE_PUBLISHABLE_KEY) are required to use this app."
     )
     st.stop()
 
@@ -41,7 +41,7 @@ def get_supabase_client(url: str, key: str) -> Client:
     return create_client(url, key)
 
 
-supabase: Client = get_supabase_client(SUPABASE_URL, SUPABASE_ANON_KEY)
+supabase: Client = get_supabase_client(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 
 if "auth_user" not in st.session_state:
     st.session_state["auth_user"] = None
