@@ -107,7 +107,7 @@ def sign_out() -> None:
         pass
     st.session_state["auth_user"] = None
     st.session_state.pop("results", None)
-    st.experimental_rerun()
+    st.rerun()
 
 # Image size limit 
 MAX_IMAGE_SIZE = 1024  # px
