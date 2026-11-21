@@ -165,39 +165,37 @@ with col1:
 
         st.image(img, caption="Input Image", use_container_width=True)
 
-        # Store uploaded file and img in session state for use in col2
+        # Store uploaded image
         st.session_state["uploaded_file"] = uploaded
         st.session_state["img"] = img
 
-        
-    # Prepare image payload
-    img_byte_arr = io.BytesIO()
-    img.save(img_byte_arr, format="JPEG", quality=85)
-    payload = img_byte_arr.getvalue()
+        # Prepare image payload
+        img_byte_arr = io.BytesIO()
+        img.save(img_byte_arr, format="JPEG", quality=85)
+        payload = img_byte_arr.getvalue()
 
-    st.write(f"Payload size: {len(payload) / 1024:.1f} KB")
+        st.write(f"Payload size: {len(payload) / 1024:.1f} KB")
 
-    if st.button("Run OCR", type="primary"):
-        access_token = st.session_state["auth_user"]["access_token"]
+        if st.button("Run OCR", type="primary"):
+            access_token = st.session_state["auth_user"]["access_token"]
 
-        with st.spinner("Sending request to API..."):
-            try:
-                response = call_modal_api(payload, access_token)
+            with st.spinner("Sending request to API..."):
+                try:
+                    response = call_modal_api(payload, access_token)
 
-                if response.status_code == 200:
-                    data = response.json()
-                    st.session_state["results"] = data
-                    st.success(
-                        f"Success! Time: {response.elapsed.total_seconds():.2f}s"
-                    )
-                else:
-                    st.error(
-                        f"API Error {response.status_code}: {response.text}"
-                    )
+                    if response.status_code == 200:
+                        st.session_state["results"] = response.json()
+                        st.success(
+                            f"Success! Time: {response.elapsed.total_seconds():.2f}s"
+                        )
+                    else:
+                        st.error(
+                            f"API Error {response.status_code}: {response.text}"
+                        )
 
-            except Exception as e:
-                st.error("Connection to API failed")
-                st.exception(e)
+                except Exception as e:
+                    st.error("Connection to API failed")
+                    st.exception(e)
 
         # --- Commented out Simulate Button ---
         # if st.button("Simulate Request"):
